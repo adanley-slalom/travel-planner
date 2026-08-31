@@ -32,9 +32,6 @@ export default function DestinationCard({ destination, onSave, isSaved = false }
           src={destination.image}
           alt={destination.name}
           className="w-full h-full object-cover"
-          onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://via.placeholder.com/400x300?text=${destination.name}`
-          }}
         />
         <button
           onClick={() => onSave?.(destination.id)}

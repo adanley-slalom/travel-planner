@@ -15,7 +15,8 @@ const config: Config = {
         'light-gray': '#F5F5F5',
       },
       fontFamily: {
-        sans: ['var(--font-sans)'],
+        jakarta: ['var(--font-plus-jakarta-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-plus-jakarta-sans)', 'system-ui', 'sans-serif'],
       },
     },
   },

@@ -16,6 +16,16 @@ export interface Destination {
   travelTips: string[]
 }
 
+// Helper function to proxy external images through our API
+function getProxiedImageUrl(externalUrl: string): string {
+  return `/api/image?url=${encodeURIComponent(externalUrl)}`
+}
+
+// Use LoremFlickr which provides real Flickr images without CORS issues
+function getLocationImage(keyword: string, lockId: string): string {
+  return `https://loremflickr.com/800/600?lock=${lockId}&random=${Math.random()}`
+}
+
 export interface TripCollection {
   id: string
   name: string
@@ -48,7 +58,7 @@ export const destinations: Destination[] = [
     name: 'Tokyo',
     country: 'Japan',
     continent: 'Asia',
-    image: 'https://placehold.co/800x600/FF6B9D/ffffff?text=Tokyo',
+    image: 'https://loremflickr.com/800/600/?lock=1&q=tokyo',
     description: 'A vibrant metropolis blending tradition and technology, from ancient temples to neon-lit streets.',
     budgetLevel: 'moderate',
     climate: 'Temperate',
@@ -65,7 +75,7 @@ export const destinations: Destination[] = [
     name: 'Lisbon',
     country: 'Portugal',
     continent: 'Europe',
-    image: 'https://placehold.co/800x600/FFA500/ffffff?text=Lisbon',
+    image: 'https://loremflickr.com/800/600/?lock=2&q=lisbon',
     description: 'A charming coastal city with colorful tiles, historic neighborhoods, and delicious food scene.',
     budgetLevel: 'budget',
     climate: 'Mediterranean',
@@ -82,7 +92,7 @@ export const destinations: Destination[] = [
     name: 'Reykjavik',
     country: 'Iceland',
     continent: 'Europe',
-    image: 'https://placehold.co/800x600/87CEEB/ffffff?text=Reykjavik',
+    image: 'https://loremflickr.com/800/600/?lock=3&q=iceland',
     description: 'Arctic adventure destination known for waterfalls, glaciers, and the Northern Lights.',
     budgetLevel: 'luxury',
     climate: 'Subarctic',
@@ -99,7 +109,7 @@ export const destinations: Destination[] = [
     name: 'Costa Rica',
     country: 'Costa Rica',
     continent: 'Central America',
-    image: 'https://placehold.co/800x600/228B22/ffffff?text=Costa+Rica',
+    image: 'https://loremflickr.com/800/600/?lock=4&q=rainforest',
     description: 'A biodiverse paradise with rainforests, beaches, and adventure activities.',
     budgetLevel: 'moderate',
     climate: 'Tropical',
@@ -116,7 +126,7 @@ export const destinations: Destination[] = [
     name: 'Vancouver',
     country: 'Canada',
     continent: 'North America',
-    image: 'https://placehold.co/800x600/4169E1/ffffff?text=Vancouver',
+    image: 'https://loremflickr.com/800/600/?lock=5&q=vancouver',
     description: 'A stunning West Coast city surrounded by mountains and ocean with a vibrant cultural scene.',
     budgetLevel: 'moderate',
     climate: 'Temperate oceanic',
@@ -133,7 +143,7 @@ export const destinations: Destination[] = [
     name: 'Cape Town',
     country: 'South Africa',
     continent: 'Africa',
-    image: 'https://placehold.co/800x600/FF8C00/ffffff?text=Cape+Town',
+    image: 'https://loremflickr.com/800/600/?lock=6&q=capetown',
     description: 'A vibrant coastal city with Table Mountain, diverse culture, and stunning natural beauty.',
     budgetLevel: 'moderate',
     climate: 'Mediterranean',
@@ -150,7 +160,7 @@ export const destinations: Destination[] = [
     name: 'Sydney',
     country: 'Australia',
     continent: 'Oceania',
-    image: 'https://placehold.co/800x600/20B2AA/ffffff?text=Sydney',
+    image: 'https://loremflickr.com/800/600/?lock=7&q=sydney',
     description: 'An iconic harbor city known for the Opera House, beautiful beaches, and cosmopolitan culture.',
     budgetLevel: 'moderate',
     climate: 'Temperate',
@@ -167,7 +177,7 @@ export const destinations: Destination[] = [
     name: 'Prague',
     country: 'Czech Republic',
     continent: 'Europe',
-    image: 'https://placehold.co/800x600/8B4513/ffffff?text=Prague',
+    image: 'https://loremflickr.com/800/600/?lock=8&q=prague',
     description: 'A fairy-tale city with Gothic architecture, medieval bridges, and rich history.',
     budgetLevel: 'budget',
     climate: 'Temperate continental',
