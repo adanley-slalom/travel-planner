@@ -16,14 +16,9 @@ export interface Destination {
   travelTips: string[]
 }
 
-// Helper function to proxy external images through our API
-function getProxiedImageUrl(externalUrl: string): string {
-  return `/api/image?url=${encodeURIComponent(externalUrl)}`
-}
-
-// Use LoremFlickr which provides real Flickr images without CORS issues
-function getLocationImage(keyword: string, lockId: string): string {
-  return `https://loremflickr.com/800/600?lock=${lockId}&random=${Math.random()}`
+// Helper function to get Unsplash images via our API endpoint
+function getUnsplashImage(query: string): string {
+  return `/api/unsplash?query=${encodeURIComponent(query)}`
 }
 
 export interface TripCollection {
@@ -58,7 +53,8 @@ export const destinations: Destination[] = [
     name: 'Tokyo',
     country: 'Japan',
     continent: 'Asia',
-    image: 'https://loremflickr.com/800/600/?lock=1&q=tokyo',
+    image: getUnsplashImage('Tokyo Japan'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=1&q=tokyo',
     description: 'A vibrant metropolis blending tradition and technology, from ancient temples to neon-lit streets.',
     budgetLevel: 'moderate',
     climate: 'Temperate',
@@ -75,7 +71,8 @@ export const destinations: Destination[] = [
     name: 'Lisbon',
     country: 'Portugal',
     continent: 'Europe',
-    image: 'https://loremflickr.com/800/600/?lock=2&q=lisbon',
+    image: getUnsplashImage('Lisbon Portugal'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=2&q=lisbon',
     description: 'A charming coastal city with colorful tiles, historic neighborhoods, and delicious food scene.',
     budgetLevel: 'budget',
     climate: 'Mediterranean',
@@ -92,7 +89,8 @@ export const destinations: Destination[] = [
     name: 'Reykjavik',
     country: 'Iceland',
     continent: 'Europe',
-    image: 'https://loremflickr.com/800/600/?lock=3&q=iceland',
+    image: getUnsplashImage('Iceland Reykjavik'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=3&q=iceland',
     description: 'Arctic adventure destination known for waterfalls, glaciers, and the Northern Lights.',
     budgetLevel: 'luxury',
     climate: 'Subarctic',
@@ -109,7 +107,8 @@ export const destinations: Destination[] = [
     name: 'Costa Rica',
     country: 'Costa Rica',
     continent: 'Central America',
-    image: 'https://loremflickr.com/800/600/?lock=4&q=rainforest',
+    image: getUnsplashImage('Costa Rica rainforest'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=4&q=rainforest',
     description: 'A biodiverse paradise with rainforests, beaches, and adventure activities.',
     budgetLevel: 'moderate',
     climate: 'Tropical',
@@ -126,7 +125,8 @@ export const destinations: Destination[] = [
     name: 'Vancouver',
     country: 'Canada',
     continent: 'North America',
-    image: 'https://loremflickr.com/800/600/?lock=5&q=vancouver',
+    image: getUnsplashImage('Vancouver Canada'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=5&q=vancouver',
     description: 'A stunning West Coast city surrounded by mountains and ocean with a vibrant cultural scene.',
     budgetLevel: 'moderate',
     climate: 'Temperate oceanic',
@@ -143,7 +143,8 @@ export const destinations: Destination[] = [
     name: 'Cape Town',
     country: 'South Africa',
     continent: 'Africa',
-    image: 'https://loremflickr.com/800/600/?lock=6&q=capetown',
+    image: getUnsplashImage('Cape Town South Africa'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=6&q=capetown',
     description: 'A vibrant coastal city with Table Mountain, diverse culture, and stunning natural beauty.',
     budgetLevel: 'moderate',
     climate: 'Mediterranean',
@@ -160,7 +161,8 @@ export const destinations: Destination[] = [
     name: 'Sydney',
     country: 'Australia',
     continent: 'Oceania',
-    image: 'https://loremflickr.com/800/600/?lock=7&q=sydney',
+    image: getUnsplashImage('Sydney Australia'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=7&q=sydney',
     description: 'An iconic harbor city known for the Opera House, beautiful beaches, and cosmopolitan culture.',
     budgetLevel: 'moderate',
     climate: 'Temperate',
@@ -177,7 +179,8 @@ export const destinations: Destination[] = [
     name: 'Prague',
     country: 'Czech Republic',
     continent: 'Europe',
-    image: 'https://loremflickr.com/800/600/?lock=8&q=prague',
+    image: getUnsplashImage('Prague Czech Republic'),
+    dataImage: 'https://loremflickr.com/800/600/?lock=8&q=prague',
     description: 'A fairy-tale city with Gothic architecture, medieval bridges, and rich history.',
     budgetLevel: 'budget',
     climate: 'Temperate continental',
