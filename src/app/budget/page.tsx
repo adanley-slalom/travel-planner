@@ -1,6 +1,7 @@
 'use client'
 
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import { destinations } from '@/data/destinations'
 import { useState } from 'react'
 import { DollarSign, Users, Calendar } from 'lucide-react'
@@ -265,12 +266,7 @@ export default function BudgetPage() {
       </div>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <p className="mb-2">© 2024 Travel Inspiration Planner. All rights reserved.</p>
-          <p className="text-gray-400">Explore. Discover. Plan. Travel.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }

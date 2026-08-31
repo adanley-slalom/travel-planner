@@ -1,6 +1,7 @@
 'use client'
 
 import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import HeroSection from '@/components/HeroSection'
 import DestinationCarousel from '@/components/DestinationCarousel'
 import { destinations } from '@/data/destinations'
@@ -149,12 +150,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 text-center">
-          <p className="mb-2">© 2024 Travel Inspiration Planner. All rights reserved.</p>
-          <p className="text-gray-400">Explore. Discover. Plan. Travel.</p>
-        </div>
-      </footer>
+      <Footer />
     </main>
   )
 }
